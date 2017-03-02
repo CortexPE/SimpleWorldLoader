@@ -11,7 +11,7 @@ use pocketmine\utils\TextFormat;
 class Main extends PluginBase implements Listener{
 
    public function onLoad(){
-	   //$this->getServer()->getPluginManager()->registerEvents($this, $this);
+	   //$this->getServer()->getPluginManager()->registerEvents($this, $this); I commented it because I decided to use onLoad() :p
 	   $this->saveDefaultConfig();
        $this->reloadConfig();
        $this->worlds = $this->getConfig()->get("worlds");
