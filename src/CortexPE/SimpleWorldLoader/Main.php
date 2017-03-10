@@ -10,12 +10,12 @@ use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase implements Listener{
 
-   public function onLoad(){
-	   //$this->getServer()->getPluginManager()->registerEvents($this, $this); I commented it because I decided to use onLoad() :p
+   public function onEnable(){
+	   $this->getServer()->getPluginManager()->registerEvents($this, $this);
 	   $this->saveDefaultConfig();
        $this->reloadConfig();
        $this->worlds = $this->getConfig()->get("worlds");
-	   $this->getLogger()->notice(TextFormat::GREEN . "Loaded Worlds: " . TextFormat::AQUA . implode(", ", $this->worlds));
+	   $this->getLogger()->notice(TextFormat::GREEN . "Loading Worlds: " . TextFormat::AQUA . implode(", ", $this->worlds));
 	   foreach($this->worlds as $w)
 	   {
     	$this->getServer()->loadLevel($w);
